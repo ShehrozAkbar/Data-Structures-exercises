@@ -120,3 +120,18 @@
 // console.log(names);
 
 // -------TASK Merge 2 sorted arrays------
+const array1 = [1, 2, 3, 4, 5, 8, 9];
+const array2 = [12, 14, 17, 29, 46];
+
+function adding2Arrays(arr1, arr2) {
+  let arr1Length = arr1.length;
+
+  for (let i = 0; i < arr2.length; i++) {
+    arr1[arr1Length] = arr2[i];
+    arr1Length++;
+  }
+  delete arr2;
+  return arr1;
+}
+
+console.log(adding2Arrays(array1, array2));
