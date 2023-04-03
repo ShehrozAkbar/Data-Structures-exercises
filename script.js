@@ -120,18 +120,97 @@
 // console.log(names);
 
 // -------TASK Merge 2 sorted arrays------
-const array1 = [1, 2, 3, 4, 5, 8, 9];
-const array2 = [12, 14, 17, 29, 46];
+// const array1 = [1, 2, 3, 4, 5, 8, 9];
+// const array2 = [12, 14, 17, 29, 46];
 
-function adding2Arrays(arr1, arr2) {
-  let arr1Length = arr1.length;
+// function adding2Arrays(arr1, arr2) {
+//   let arr1Length = arr1.length;
 
-  for (let i = 0; i < arr2.length; i++) {
-    arr1[arr1Length] = arr2[i];
-    arr1Length++;
+//   for (let i = 0; i < arr2.length; i++) {
+//     arr1[arr1Length] = arr2[i];
+//     arr1Length++;
+//   }
+//   delete arr2;
+//   return arr1;
+// }
+
+// console.log(adding2Arrays(array1, array2));
+
+// ------------------07--Hash Maps-----------------
+// by given an array as input return the value which repeats first..?
+
+//Google Question
+//Given an array = [2,5,1,2,3,5,1,2,4]:
+//It should return 2
+
+//Given an array = [2,1,1,2,3,5,1,2,4]:
+//It should return 1
+
+//Given an array = [2,3,4,5]:
+//It should return undefined
+
+// Javascript program to find first
+// repeating element in arr[] with nested loop
+function checkFirstRepeatition(array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] === array[j]) {
+        return array[i];
+      }
+    }
   }
-  delete arr2;
-  return arr1;
+}
+// result=2
+
+console.log(checkFirstRepeatition([2, 5, 5, 3, 5, 1, 2, 2, 4]));
+
+// Javascript program to findelements which repeats first
+// in arr[]
+checkFirstRepeatition2 = (array) => {
+  const obj = {};
+  for (let i = 0; i < array.length; i++) {
+    if (!obj[array[i]]) {
+      obj[array[i]] = true;
+    } else {
+      return array[i];
+    }
+  }
+};
+// result=5
+
+console.log(checkFirstRepeatition2([2, 5, 5, 3, 5, 1, 2, 2, 4]));
+
+// Javascript program to find first
+// repeating element in arr[] without nested loop
+
+// This function prints the first
+// repeating element in arr[]
+function printFirstRepeating(arr) {
+  // Initialize index of first
+  // repeating element
+  let min = -1;
+
+  // Creates an empty hashset
+  let set = new Set();
+
+  // Traverse the input array from right to left
+  for (let i = arr.length - 1; i >= 0; i--) {
+    // If element is already in
+    // hash set, update min
+    if (set.has(arr[i])) min = i;
+    // Else add element to hash set
+    else set.add(arr[i]);
+  }
+
+  // Print the result
+  if (min != -1) console.log("The first repeating element is " + arr[min]);
+  else console.log("There are no repeating elements");
 }
 
-console.log(adding2Arrays(array1, array2));
+// Driver code
+let arr = [2, 5, 5, 3, 5, 1, 2, 2, 4];
+
+printFirstRepeating(arr);
+// result=2
+
+// This code is contributed by unknown2108
