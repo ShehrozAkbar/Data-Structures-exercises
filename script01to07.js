@@ -68,7 +68,7 @@
 
 // console.log(reverseString("this is the first string"));
 
-// TASK: building an array form scratch
+// --------------------------TASK: building an array form scratch-------------------------------------
 
 // class MyArray {
 //   constructor(lengteh, data) {
