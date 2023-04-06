@@ -2,7 +2,7 @@
 
 // ------------------08--Linked Lists-----------------
 
-// making my first self made linked list
+// ===================================================== making my first self made linked list =======================================================
 
 class LinkedList {
   constructor(value) {
@@ -73,21 +73,66 @@ class LinkedList {
       this.length--;
     }
   }
+  // this function is to reverse the liniked list
+  // [97, 70, 27, 23, 11]
+  // this is my first try but its is not working
+  // reverse() {
+  //   let reversedList;
+  //   let travelNode = this.head;
+  //   let chainNode;
+  //   reversedList;
+  //   for (let i = this.length; i > 0; i--) {
+  //     for (let j = 0; j < i - 1; j++) {
+  //       travelNode = travelNode.next;
+  //     }
+
+  //     chainNode = travelNode;
+  //     if (i == this.length) {
+  //       reversedList = chainNode;
+  //     }
+  //     chainNode = chainNode.next;
+  //     travelNode = this.head;
+  //   }
+  //   return reversedList;
+  // }
+
+  // this function is to reverse the liniked list
+  reverse() {
+    if (!this.head.next) {
+      return this.head;
+    }
+    let first = this.head;
+    let second = first.next;
+    this.tail = this.head;
+    while (second) {
+      const temp = second.next;
+      second.next = first;
+      first = second;
+      second = temp;
+    }
+    this.head.next = null;
+    this.head = first;
+    return this;
+  }
 }
 
-// const mylinklist = new LinkedList(23);
-// mylinklist.prepend(27);
-// mylinklist.prepend(70);
-// mylinklist.prepend(97);
+const mylinklist = new LinkedList(4);
+mylinklist.prepend(3);
+mylinklist.prepend(2);
+mylinklist.prepend(1);
 
 // mylinklist.append(11);
-// // [97, 70, 27, 23, 11]
+// [97, 70, 27, 23, 11]
 // mylinklist.insert(2, 22);
+// [97, 70,22, 27, 23, 11]
 
-// console.log(mylinklist.showList());
+console.log(mylinklist.reverse());
+console.log(mylinklist.showList());
 
-// making my first self made Doubly linked list
-
+//
+//
+//
+// ================================= making my first self made Doubly linked list =======================================================
 class DoublyLinkedList {
   constructor(value) {
     this.head = {
@@ -180,20 +225,20 @@ class DoublyLinkedList {
   }
 }
 
-const myDoublyList = new DoublyLinkedList(24);
-// myDoublyList.append(44);
-// myDoublyList.append(45);
-// myDoublyList.append(46);
-// myDoublyList.append(99);
+// const myDoublyList = new DoublyLinkedList(24);
+// // myDoublyList.append(44);
+// // myDoublyList.append(45);
+// // myDoublyList.append(46);
+// // myDoublyList.append(99);
 
-myDoublyList.prepend(12);
-myDoublyList.prepend(7);
+// myDoublyList.prepend(12);
+// myDoublyList.prepend(7);
 
-myDoublyList.prepend(5);
-// [5,7,12,24,44,99]
-myDoublyList.insert(2, 1000);
-myDoublyList.insert(0, 2000);
-myDoublyList.insert(14, 3000);
-// [2000,5,7,1000,12,24,3000]
-myDoublyList.remove(5);
-console.log(myDoublyList.showList());
+// myDoublyList.prepend(5);
+// // [5,7,12,24,44,99]
+// myDoublyList.insert(2, 1000);
+// myDoublyList.insert(0, 2000);
+// myDoublyList.insert(14, 3000);
+// // [2000,5,7,1000,12,24,3000]
+// myDoublyList.remove(5);
+// console.log(myDoublyList.showList());
