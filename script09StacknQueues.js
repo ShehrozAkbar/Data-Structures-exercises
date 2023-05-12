@@ -59,23 +59,23 @@
 //       return this.top;
 //     }
 //   }
-//   // push function is to add the node at the top of the stack
-//   push(value) {
-//     const newNode = {
-//       value: value,
-//       next: null,
-//     };
-//     if (this.top === null) {
-//       this.top = newNode;
-//       this.bottom = newNode;
-//     } else {
-//       let holdNode = this.top;
-//       this.top = newNode;
-//       this.top.next = holdNode;
-//     }
-//     this.length++;
-//     return this.length;
+// push function is to add the node at the top of the stack
+// push(value) {
+//   const newNode = {
+//     value: value,
+//     next: null,
+//   };
+//   if (this.top === null) {
+//     this.top = newNode;
+//     this.bottom = newNode;
+//   } else {
+//     let holdNode = this.top;
+//     this.top = newNode;
+//     this.top.next = holdNode;
 //   }
+//   this.length++;
+//   return this.length;
+// }
 
 // pop function is to delete the node at the top of the stack
 //   pop() {
