@@ -97,3 +97,5 @@ function merge(left, right) {
 let array = [21, 19, 14, 21, 36, 54, 100, 26, 40];
 
 mergeSort(array);
+
+// the merge sort is not working it giving the stack overflow error i don't know why

@@ -4,6 +4,7 @@ class Graph {
     this.adjacentList = {};
   }
   addVertex(node) {
+    ``;
     this.adjacentList[node] = [];
     this.numberOfNodes++;
   }
