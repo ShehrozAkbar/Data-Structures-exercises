@@ -52,6 +52,44 @@ class TreeDS {
       }
     }
   }
+  //   this BFS is usong the iteration method(Normally this is mostly used)
+  breathFirstSearch() {
+    let current = this.root;
+    let list = [];
+    let queue = [];
+
+    queue.push(current);
+    while (queue.length > 0) {
+      current = queue.shift();
+      list.push(current.value);
+      if (current.left) {
+        queue.push(current.left);
+      }
+      if (current.right) {
+        queue.push(current.right);
+      }
+    }
+
+    return list;
+  }
+
+  //   this BFS is by recurtion method
+  breathFirstSearchR(list, queue) {
+    if (queue.length == 0) {
+      return list;
+    }
+    let currentNode = queue.shift();
+    list.push(currentNode.value);
+
+    if (currentNode.left) {
+      queue.push(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right);
+    }
+
+    return this.breathFirstSearchR(list, queue);
+  }
 }
 
 const numList = new TreeDS();
@@ -61,3 +99,7 @@ numList.insert(3);
 numList.insert(19);
 numList.insert(29);
 numList.insert(7);
+
+console.log(numList.breathFirstSearch());
+
+console.log(numList.breathFirstSearchR([], [numList.root]));
