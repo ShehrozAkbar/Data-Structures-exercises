@@ -90,16 +90,61 @@ class TreeDS {
 
     return this.breathFirstSearchR(list, queue);
   }
+
+  deapthFirstSearchINOrder() {
+    return traverseInOrder(this.root, []);
+  }
+
+  deapthFirstSearchPREOrder() {
+    return traversePreOrder(this.root, []);
+  }
+  deapthFirstSearchPOSTOrder() {
+    return traversePostOrder(this.root, []);
+  }
+}
+
+// these 3 functions are outside what are being called by DFS
+function traverseInOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+  list.push(node.value);
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  return list;
+}
+function traversePreOrder(node, list) {
+  list.push(node.value);
+  if (node.left) {
+    traversePreOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePreOrder(node.right, list);
+  }
+  return list;
+}
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traversePostOrder(node.left, list);
+  }
+  if (node.right) {
+    traversePostOrder(node.right, list);
+  }
+  list.push(node.value);
+  return list;
 }
 
 const numList = new TreeDS();
 
 numList.insert(9);
-numList.insert(3);
-numList.insert(19);
-numList.insert(29);
-numList.insert(7);
+numList.insert(4);
+numList.insert(1);
+numList.insert(6);
+numList.insert(20);
+numList.insert(15);
+numList.insert(170);
 
-console.log(numList.breathFirstSearch());
+// console.log(numList.breathFirstSearch());
 
-console.log(numList.breathFirstSearchR([], [numList.root]));
+// console.log(numList.breathFirstSearchR([], [numList.root]));
