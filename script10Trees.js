@@ -59,7 +59,9 @@ class BinarySearchTree {
 const numList = new BinarySearchTree();
 
 numList.insert(9);
-numList.insert(3);
-numList.insert(19);
-numList.insert(29);
-numList.insert(7);
+numList.insert(4);
+numList.insert(20);
+numList.insert(1);
+numList.insert(6);
+numList.insert(15);
+numList.insert(170);
